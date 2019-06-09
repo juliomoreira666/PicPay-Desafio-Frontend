@@ -1,6 +1,6 @@
 # Preview
 
-![Farmers Market Finder Demo](https://s3.gifyu.com/images/teste.gif)
+![Farmers Market Finder Demo](./teste.gif)
 
 # Informações sobre o teste
 
