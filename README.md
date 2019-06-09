@@ -1,6 +1,6 @@
 # Preview
 
-![alt text](https://s3.gifyu.com/images/teste.gif)
+![](https://s3.gifyu.com/images/teste.gif)
 
 # Informações sobre o teste
 
