@@ -1,7 +1,3 @@
-# Preview
-
-![Farmers Market Finder Demo](./teste.gif)
-
 # Informações sobre o teste
 
 - Utilizei angular 8 para desenvolver o spa;
