@@ -1,0 +1,73 @@
+<div
+  class="modal fade"
+  id="modalCartoes"
+  tabindex="1"
+  role="dialog"
+  aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">
+          Cadastro Cartão de Crédito
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body col-12">
+        <div class="container text-center">
+          <h3 class="font-weight-bold">Cartoes Cadastrados</h3>
+          <ul class="list-group" *ngIf="containCards()">
+            <li *ngFor="let list of cartoes" class="list-group-item cartoes">
+              <h4>
+                <input
+                  (change)="selectCard(list)"
+                  type="radio"
+                  name="select"
+                  class="radio-select"
+                />
+                {{ list.numero }}
+              </h4>
+            </li>
+          </ul>
+          <div
+            *ngIf="!containCards()"
+            class="alert alert-primary newCard"
+            role="alert"
+          >
+            <h4>Nenhum Cartão cadastrado</h4>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          data-dismiss="modal"
+          [disabled]="disabled"
+          type="button"
+          class="btn btn-success btn-lg btn-block"
+        >
+          SELECIONAR
+        </button>
+        <!--   <button
+          style="margin-top: 0px!important;"
+          (click)="clearLocalStorage()"
+          type="button"
+          class="btn btn-danger btn-lg btn-block"
+        >
+          EXCLUIR CARTOES
+        </button> -->
+      </div>
+      <!-- Teste para verificar os cartoes cadastrados -->
+      <!-- {{ cartoesCadastrados | json }} -->
+      <!-- Teste Verificador de cartao selecionado -->
+      <!-- {{ cartaoSelecionado | json }} -->
+    </div>
+  </div>
+</div>

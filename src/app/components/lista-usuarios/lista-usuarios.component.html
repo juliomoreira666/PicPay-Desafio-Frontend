@@ -1,0 +1,30 @@
+<section class="row">
+  <div class="container">
+    <ul class="list-group items-ul">
+      <li
+        *ngFor="let list of user"
+        class="list-group-item item-for slideInLeft animated"
+      >
+        <img
+          [src]="list.img"
+          class="rounded-circle float-left"
+          [alt]="list.name"
+          [title]="list.name"
+        />
+        <h3>
+          {{ list.name }}
+        </h3>
+        <span class="spanId">id: {{ list.id }}</span>
+        <span class="spanId">{{ list.username }}</span>
+        <span
+          data-toggle="modal"
+          data-target="#modalCadastro"
+          (click)="obtainData(list)"
+          class="pay"
+          >PAGAR</span
+        >
+      </li>
+    </ul>
+  </div>
+</section>
+<app-pagamento-cadastro [user]="usuario"></app-pagamento-cadastro>

@@ -1,0 +1,92 @@
+<!-- Modal -->
+<div
+  *ngIf="modalCadastro"
+  class="modal fade"
+  id="modalCartao"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">
+          Cadastro Cartão de Crédito
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body col-12">
+        <div class="container text-center">
+          <div class="form-group">
+            <form>
+              <select
+                (change)="cardInLocalStorage.bandeira = $event.target.value"
+                class="form-control"
+              >
+                <option selected>Selecione a bandeira</option>
+                <option value="master">Master</option>
+                <option value="visa">Visa</option>
+              </select>
+              <input
+                class="form-control"
+                placeholder="Nome escrito no cartão"
+                type="text"
+                (input)="cardInLocalStorage.nomeEscrito = $event.target.value"
+              />
+              <input
+                mask="0000.0000.0000.0000"
+                class="form-control"
+                placeholder="Número do Cartão"
+                type="text"
+                (input)="cardInLocalStorage.numero = $event.target.value"
+              />
+              <input
+                mask="00/0000"
+                class="form-control"
+                placeholder="validade (mm/aaaa)"
+                type="text"
+                (input)="cardInLocalStorage.validade = $event.target.value"
+              />
+              <input
+                mask="000"
+                class="form-control"
+                placeholder="Código de segurança"
+                type="text"
+                (input)="cardInLocalStorage.codigo = $event.target.value"
+              />
+              <input
+                mask="00000-000"
+                class="form-control"
+                placeholder="CEP do Endereço da fatura"
+                type="text"
+                (input)="cardInLocalStorage.cep = $event.target.value"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          data-toggle="modal"
+          data-target="#modalCartoes"
+          (click)="saveCard(this.cardInLocalStorage)"
+          type="button"
+          class="btn btn-success btn-lg btn-block"
+        >
+          CADASTRAR
+        </button>
+      </div>
+      <!-- Teste para verificar os cartoes cadastrados -->
+      <!-- {{ cartoesCadastrados | json }} -->
+    </div>
+  </div>
+</div>
+<app-lista-cartoes [cartoes]="cartoesCadastrados"></app-lista-cartoes>

@@ -1,0 +1,46 @@
+#principal {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.spanId {
+  font-size: 1.4em;
+}
+h3 {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+img {
+  margin-right: 1em;
+}
+
+.item-for {
+  cursor: pointer;
+  background-color: #badc58;
+  color: #fff;
+  border-bottom: 2px solid #21c25e !important;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.items-ul {
+  margin-top: 5px;
+}
+
+.pay {
+  float: right;
+  font-size: 2em;
+  margin-top: -1em;
+}
+
+.pay:after {
+  background-image: url("./../../../assets/coins-512.png");
+  content: "";
+  width: 50px;
+  display: inline;
+  float: right;
+  height: 50px;
+  background-size: cover;
+  margin-top: 0px;
+}

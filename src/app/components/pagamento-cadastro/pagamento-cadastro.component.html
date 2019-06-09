@@ -1,0 +1,111 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modalCadastro"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="TituloModalCentralizado">
+          Pagamento para {{ user.name }}
+          <!-- Teste Cartao via observable -->
+          <!--  {{ cartao | json }} -->
+        </h4>
+        <button
+          (click)="booleanSuccess()"
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body col-12">
+        <div class="container text-center">
+          <img
+            [src]="user.img"
+            class="rounded-circle"
+            [alt]="user.name"
+            [title]="user.name"
+          />
+          <h3>{{ user.name }}</h3>
+          id: {{ user.id }}
+          {{ user.username }}
+          <form>
+            <div class="form-group">
+              <input
+                (input)="this.moneyPost = $event.target.value"
+                mask="dot_separator.0"
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="R$ 0,00"
+              />
+            </div>
+            <button
+              (click)="pagar(user.id, cartao)"
+              alt="Efetuar pagamento!"
+              title="Efetuar pagamento!"
+              [disabled]="(cartao | json) === '{}'"
+              type="button"
+              class="btn btn-success btn-lg btn-block"
+            >
+              PAGAR
+            </button>
+            <button
+              (click)="booleanSuccess()"
+              alt="Vizualizar cartões cadastrados"
+              title="Vizualizar cartões cadastrados"
+              data-toggle="modal"
+              data-target="#modalCartoes"
+              href="#"
+              type="button"
+              class="btn btn-success btn-lg btn-block"
+            >
+              VER CARTÕES
+            </button>
+          </form>
+          <div
+            class="alert alert-danger newCard"
+            role="alert"
+            *ngIf="(cartao | json) === '{}'"
+          >
+            Nenhum cartão de crédito selecionado.
+            <a data-toggle="modal" data-target="#modalCartao" href="#"
+              >Cadastrar ?</a
+            >
+          </div>
+          <div
+            *ngIf="(cartao | json) !== '{}'"
+            class="alert alert-primary newCard"
+            role="alert"
+          >
+            <h4>Forma de pagamento:</h4>
+            <h4>
+              Cartão de Crédito com Final <b>{{ cartao.numero | slice: -4 }}</b>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="container text-center">
+          <div *ngIf="sucesso" class="alert alert-success" role="alert">
+            <h3>Pagamento realizado com sucesso!</h3>
+          </div>
+          <div *ngIf="erro" class="alert alert-danger" role="alert">
+            <h4>Erro ao tentar realizar pagamento :(</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-cadastro-cartao></app-cadastro-cartao>
+<div *ngIf="loading" id="loading" class="text-center">
+  <img src="../../../assets/loading.gif" />
+</div>
