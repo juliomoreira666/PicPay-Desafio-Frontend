@@ -1,3 +1,15 @@
+# Informações sobre o teste
+
+- Utilizei angular 8 para desenvolver o spa;
+- Não consegui reproduzir com exatidão o layout, por que nao consegui pegar as cores, fontes e imagens;
+- Tentei fazer uma versão própria do teste ( Claro que seguindo os requisitos impostos no teste :) );
+- Faltou alguns detalhes pra incluir, retornos de erros, componetização de alguns modais;
+- Utilizei bootstrap 4;
+- Utilizei o localStorage do navegador para guardar os cartões cadastrados, caso precise reiniciar o teste sem cartões
+  pode limpar o localStorage;
+- Os testes foram feitos no Chrome e em ambiente de desenvolvimento "ng serve";
+- Qualquer dúvida estou a disposição;
+
 # PicFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
